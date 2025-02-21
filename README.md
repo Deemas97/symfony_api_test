@@ -34,12 +34,12 @@
     DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@127.0.0.1:5432/${POSTGRES_DB}
     "
 
-5. Запустить контейнер с БД PostgresQL.
+6. Запустить контейнер с БД PostgresQL.
 
-6. Выполнить команду "php bin/console doctrine:migrations:migrate"
+7. Выполнить команду "php bin/console doctrine:migrations:migrate"
     для создания таблиц базы данных.
 
-7. Выполнить команду "php bin/console doctrine:fixtures:load"
+8. Выполнить команду "php bin/console doctrine:fixtures:load"
     для генерации тестовых записей в таблицы базы данных.
 
 ## Проверка работы проекта
