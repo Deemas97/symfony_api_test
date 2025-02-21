@@ -30,9 +30,9 @@
 
     "
     POSTGRES_DB=db0_test
-    POSTGRES_USER=user
-    POSTGRES_PASSWORD=!ChangeMe!
-    DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@127.0.0.1:5432/${POSTGRES_DB}
+    \n POSTGRES_USER=user
+    \n POSTGRES_PASSWORD=!ChangeMe!
+    \n DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@127.0.0.1:5432/${POSTGRES_DB}
     "
 
 6. Запустить контейнер с БД PostgresQL.
