@@ -6,18 +6,18 @@
 1. В файле /postgres-init/init.sql
     внести правки для инициализации БД PostgresQL:
 
-    "
-    -- Создание пользователя
-    CREATE USER user WITH PASSWORD '!ChangeMe!';
+```
+-- Создание пользователя
+CREATE USER user WITH PASSWORD '!ChangeMe!';
 
-    -- Создание БД с указанием владельца
-    CREATE DATABASE db0_test OWNER user;
+-- Создание БД с указанием владельца
+CREATE DATABASE db0_test OWNER user;
 
-    -- Выдача прав (опционально, OWNER уже имеет полный доступ)
-    GRANT ALL PRIVILEGES ON DATABASE db0_test TO user;
-    "
+-- Выдача прав (опционально, OWNER уже имеет полный доступ)
+GRANT ALL PRIVILEGES ON DATABASE db0_test TO user;
+```
 
-2. Запустить Composer командой "composer update" для установки зависимостей проекта.
+2. Запустить Composer командой `composer update` для установки зависимостей проекта.
     ! Не вносите изменения в Docker-файл, предложенные Composer !
    
 4. Запустить Makefile
@@ -28,29 +28,32 @@
 4. В файле /.env или /.env.local
     внести правки для инициализации базы данных PostgresQL:
 
-    "
-    POSTGRES_DB=db0_test
-    \n POSTGRES_USER=user
-    \n POSTGRES_PASSWORD=!ChangeMe!
-    \n DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@127.0.0.1:5432/${POSTGRES_DB}
-    "
+```
+POSTGRES_DB=db0_test
+POSTGRES_USER=user
+POSTGRES_PASSWORD=!ChangeMe!
+DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@127.0.0.1:5432/${POSTGRES_DB}
+```
 
 6. Запустить контейнер с БД PostgresQL.
 
-7. Выполнить команду "php bin/console doctrine:migrations:migrate"
+7. Выполнить команду `php bin/console doctrine:migrations:migrate`
     для создания таблиц базы данных.
 
-8. Выполнить команду "php bin/console doctrine:fixtures:load"
+8. Выполнить команду `php bin/console doctrine:fixtures:load`
     для генерации тестовых записей в таблицы базы данных.
 
 ## Проверка работы проекта
 
 Для проверки работоспособности запустите один из предложенных тестов
 при помощи инструмента PHPUnit:
-    /tests:
-       PriceCalculatorTest.php
-       PurchaseTest.php
-       IntegratedTest.php
+
+```
+/tests:
+    PriceCalculatorTest.php
+    PurchaseTest.php
+    IntegratedTest.php
+```
 
 (i) Порядок тестов отсортирован от старого к новому.
 Тест IntegratedTest.php работает только с подключенной
