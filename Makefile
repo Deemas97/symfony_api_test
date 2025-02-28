@@ -16,13 +16,13 @@ build: ## Build services.
 	${DC} build $(c)
 
 up: ## Create and start services.
-	${DC} up -d $(c)
+	${DC} up -d sio_test postgres $(c)
 
 stop: ## Stop services.
 	${DC} stop $(c)
 
 start: ## Start services.
-	${DC} start $(c)
+	${DC} start sio_test postgres $(c)
 
 down: ## Stop and remove containers and volumes.
 	${DC} down -v $(c)
@@ -37,4 +37,5 @@ install: ## Install dependencies without running the whole application.
 
 success-message:
 	@echo "You can now access the application at http://localhost:8337"
+	@echo "PostgreSQL is running at localhost:5432"
 	@echo "Good luck! 🚀"

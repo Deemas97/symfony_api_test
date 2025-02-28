@@ -1,4 +1,4 @@
-### Calculate Price
+### Calculate Price #1
 POST http://127.0.0.1:8337/calculate-price
 Accept: application/json
 Content-Type: application/json
@@ -6,17 +6,65 @@ Content-Type: application/json
 {
   "product": 1,
   "taxNumber": "DE123456789",
-  "couponCode": "D15"
+  "couponCode": "D10"
 }
 
-### Execute Purchase
+### Calculate Price #2
+POST http://127.0.0.1:8337/calculate-price
+Accept: application/json
+Content-Type: application/json
+
+{
+  "product": 2,
+  "taxNumber": "IT12345678900",
+  "couponCode": "D20"
+}
+
+### Calculate Price #3
+POST http://127.0.0.1:8337/calculate-price
+Accept: application/json
+Content-Type: application/json
+
+{
+  "product": 3,
+  "taxNumber": "FRXY123456789",
+  "couponCode": "D30"
+}
+
+
+
+### Execute Purchase #1
 POST http://127.0.0.1:8337/purchase
 Accept: application/json
 Content-Type: application/json
 
 {
   "product": 1,
+  "taxNumber": "DE123456789",
+  "couponCode": "D10",
+  "paymentProcessor": "paypal"
+}
+
+### Execute Purchase #2
+POST http://127.0.0.1:8337/purchase
+Accept: application/json
+Content-Type: application/json
+
+{
+  "product": 2,
   "taxNumber": "IT12345678900",
-  "couponCode": "D15",
+  "couponCode": "D20",
+  "paymentProcessor": "stripe"
+}
+
+### Execute Purchase #3
+POST http://127.0.0.1:8337/purchase
+Accept: application/json
+Content-Type: application/json
+
+{
+  "product": 3,
+  "taxNumber": "FRXY123456789",
+  "couponCode": "D30",
   "paymentProcessor": "paypal"
 }
